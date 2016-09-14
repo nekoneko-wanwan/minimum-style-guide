@@ -26,6 +26,7 @@
         - 特定のスタイル `.p-xxx` 配下でのmoduleはこうしたい、など
 - _utility.scss
     - アドホックなスタイル
+    - 接頭辞に **u-** を付ける
 ```
 
 ※必要に応じて、layout・module・page・utilityもpresetのように分割する

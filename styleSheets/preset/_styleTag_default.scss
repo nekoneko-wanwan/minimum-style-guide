@@ -1,0 +1,183 @@
+// -----------------------------------------
+// 要素の初期値を設定
+// classはつけないこと
+// -----------------------------------------
+
+// block ----------------------------
+html {
+  font-size: $base_font_size_percent;
+  min-height: 100%;
+  position: relative;
+}
+body {
+  font-family: $base_font_family;
+  line-height: 1.6;
+  position: relative;
+  @include isSpSize() {
+    @include rem(16px);
+  }
+}
+p,
+ul,
+ol,
+dl,
+form,
+table,
+figure {
+  + p  {margin-top: 1.5em;}
+  + ul {margin-top: 1.5em;}
+  + ol {margin-top: 1.5em;}
+  + dl {margin-top: 1.5em;}
+  + form {margin-top: 1.5em;}
+  + table {margin-top: 1.5em;}
+  + figure {margin-top: 1.5em;}
+}
+ul,
+ol {
+  padding-left: 20px;
+  margin-left: 0;
+}
+li {
+  + li {
+    margin-top: .7em;
+  }
+}
+dd {
+  margin-top: .7em;
+  & + dt {
+    margin-top: 1.5em;
+  }
+}
+h1 {
+}
+h2 {
+}
+h3 {
+}
+h4 {
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  th,
+  td {
+    padding: 1em;
+    text-align: left;
+    vertical-align: top;
+  }
+}
+
+// inline ----------------------------
+a {
+  display: inline-block;
+  text-decoration: none;
+  &:link,
+  &:visited {
+  }
+  &:hover,
+  &:active {
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+  // ie用のhack
+  // ieだとbefore,after要素でoverrideができないため、擬似要素にiconを設定しているとiconにもunderlineが引かれてしまう
+  // 別セレクタで再度上書きしてやる必要がある
+  &:before,
+  &:after {
+    text-decoration: underline;
+  }
+  &:before,
+  &:after {
+    text-decoration: none;
+  }
+}
+
+// img ----------------------------
+img {
+  vertical-align: middle;
+  border: none;
+}
+
+// form ----------------------------
+label {
+  cursor: pointer;
+  vertical-align: text-top;
+  + label {
+    margin-left: 1.5em;
+  }
+}
+input {
+  &[type=text],
+  &[type=password],
+  &[type=tel],
+  &[type=email] {
+    border: none;
+    margin: 0;
+    padding: 3px 0;
+    text-indent: .5em;
+  }
+  &[type=submit],
+  &[type=button],
+  &[type=reset] {
+    border: none;
+    cursor: pointer;
+    vertical-align: top;
+    display: inline-block;
+    + input[type=submit],
+    + input[type=button],
+    + input[type=reset] {
+      margin-left: 1.5em;
+    }
+  }
+  &[type=radio],
+  &[type=checkbox] {
+    label & {
+      cursor: pointer;
+      margin: 3px 5px 0px 5px;
+      vertical-align: text-top;
+    }
+  }
+}
+button {
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: top;
+}
+select {
+  white-space: nowrap;
+}
+option {
+}
+textarea {
+  border: none;
+  resize: vertical;
+  width: 100%;
+}
+
+// placeholder ----------------------------
+// Webkit
+::-webkit-input-placeholder {
+  color: #bbb;
+  opacity: 1;
+}
+// Firefox 18 以前
+:-moz-placeholder {
+  color: #bbb;
+}
+/* Firefox 19 以降 */
+::-moz-placeholder {
+  color: #bbb;
+  // Firefox 19 以降のデフォルトでは
+  // color ではなく opacity で色合いを調整しているため
+  // 文字色を指定する場合、opacity を 1 にする必要がある
+  opacity: 1;
+}
+// IE 10 以降
+:-ms-input-placeholder {
+  color: #bbb;
+}
+// css4
+:placeholder-shown {
+  color: #bbb;
+}

@@ -1,0 +1,51 @@
+// -----------------------------------------
+// グローバル変数・関数・mixinなど定義
+// -----------------------------------------
+
+
+// color manager --------------------
+$project_main_color: #ffffff;
+
+
+// width manager --------------------
+$width_pc: 1000px;
+$width_pc_main: 730px !default; // 2カラムのメイン側
+$width_pc_sub: 220px !default; // 2カラムのサブ側
+$width_breakpoint_sp: 767px !default;
+$width_breakpoint_min: 350px !default;
+
+
+// font manager --------------------
+$base_font_size_px: 14px;
+$base_font_size_percent: ($base_font_size_px / 16px * 100) + 0%; // 16pxは全ブラウザの文字サイズ初期値=100%
+$base_font_family: 'メイリオ',Meiryo,'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro',Verdana,'ＭＳ Ｐゴシック','MS PGothic',sans-serif !default;
+
+
+// mixin --------------------
+@mixin clearfix {
+  &:after {
+    content:" ";
+    display:block;
+    clear:both;
+  }
+}
+// remのロールバック
+// @use: @include rem(16px)
+@mixin rem($size_px: $base_font_size_px) {
+  font-size: $size_px;
+  font-size: ($size_px / $base_font_size_px) * 1rem;
+}
+
+
+// responsive --------------------
+@mixin isSpSize {
+  @media only screen and (min-width:1px) and (max-width: $width_breakpoint_sp) {
+    @content;
+  }
+}
+
+@mixin isMinSize {
+  @media only screen and (min-width:1px) and (max-width: $width_breakpoint_min) {
+    @content;
+  }
+}

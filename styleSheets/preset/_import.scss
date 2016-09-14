@@ -1,0 +1,9 @@
+// -----------------------------------------
+// style.scssで読み込みたいファイルを定義
+// 読み込み順は変えないこと
+// -----------------------------------------
+
+@import '_config';  // グローバル変数・関数・mixinなど
+@import '_reset';  // リセットcss
+@import '_styleTag_default';  // 要素の初期値（classはつけない）
+@import '_styleTag_custom';  // defaultをclassで拡張したもの

@@ -1,0 +1,65 @@
+// -----------------------------------------
+// 要素のカスタマイズ
+// 基本は要素名自体をclass名にする
+// -----------------------------------------
+
+// block ----------------------------
+.table {
+  border-collapse: collapse;
+  width: 100%;
+  > th,
+  > td {
+    border: 1px solid #ccc;
+  }
+}
+.ul {
+}
+.ol {
+}
+.p {
+}
+.section {
+}
+.article {
+}
+.hr {
+}
+
+// inline ----------------------------
+
+// img ----------------------------
+
+// form ----------------------------
+.label {
+}
+.input {
+  &[type=text],
+  &[type=password],
+  &[type=tel],
+  &[type=email] {
+    border: 1px solid #ccc;
+  }
+  &[type=submit],
+  &[type=button],
+  &[type=reset] {
+    border: 1px solid #ccc;
+    + .input[type=submit],
+    + .input[type=button],
+    + .input[type=reset] {
+    }
+  }
+  &[type=radio],
+  &[type=checkbox] {
+    .label & {
+    }
+  }
+}
+.button {
+}
+.select {
+}
+.option {
+}
+.textarea {
+  border: 1px solid #ccc;
+}

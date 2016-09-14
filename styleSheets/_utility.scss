@@ -1,0 +1,69 @@
+// -----------------------------------------
+// アドホックなスタイル
+// なるべく細かく作成するが、乱用には注意
+// classの接頭辞に u- をつける
+// -----------------------------------------
+
+// text-align manager --------------------
+.u-text-center { text-align: center;}
+.u-text-left   { text-align: left;}
+.u-text-right  { text-align: right;}
+
+// margin, padding manager --------------------
+
+// 大きさ（主にutilityの余白で使用）
+// $utility-size-list: (
+// 	'none'  : 0px,
+// 	'xsmall': 10px,
+// 	'small' : 20px,
+// 	'middle': 30px,
+// 	'large' : 40px,
+// 	'xlarge': 50px
+// );
+$utility-size-list: (
+  'none'  : 0px
+);
+@each $class, $val in $utility-size-list {
+  // margin
+  .u-mt-#{$class} {
+    margin-top: $val !important;
+  }
+  .u-mb-#{$class} {
+    margin-bottom: $val !important;
+  }
+  .u-ml-#{$class} {
+    margin-left: $val !important;
+  }
+  .u-mr-#{$class} {
+    margin-right: $val !important;
+  }
+
+  // negative
+  .u-ng-mt-#{$class} {
+    margin-top: -$val !important;
+  }
+  .u-ng-mb-#{$class} {
+    margin-bottom: -$val !important;
+  }
+  .u-ng-ml-#{$class} {
+    margin-left: -$val !important;
+  }
+  .u-ng-mr-#{$class} {
+    margin-right: -$val !important;
+  }
+  
+  // padding
+  .u-pt-#{$class} {
+    padding-top: $val !important;
+  }
+  .u-pb-#{$class} {
+    padding-bottom: $val !important;
+  }
+  .u-pl-#{$class} {
+    padding-left: $val !important;
+  }
+  .u-pr-#{$class} {
+    padding-right: $val !important;
+  }
+}
+
